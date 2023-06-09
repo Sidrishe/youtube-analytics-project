@@ -38,10 +38,6 @@ class Channel:
     def __lt__(self, other):
         """Сравнивает по количеству подписчиков"""
         return int(self.subscriber_count) < int(other.subscriber_count)
-        # if int(self.subscriber_count) > int(other.subscriber_count):
-        #     return True
-        # else:
-        #     return False
 
     def __ge__(self, other):
         return int(self.subscriber_count) >= int(other.subscriber_count)
