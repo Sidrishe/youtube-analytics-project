@@ -23,6 +23,31 @@ class Channel:
         self.video_count = self.channel_info["items"][0]["statistics"]["videoCount"]
         self.view_count = self.channel_info["items"][0]["statistics"]["viewCount"]
 
+    def __str__(self):
+        """Вывод название и url страницы"""
+        return f"{self.title} ({self.url})"
+
+    def __add__(self, other):
+        """Суммарное кол-во подписчиков"""
+        return int(self.subscriber_count) + int(other.subscriber_count)
+
+    def __sub__(self, other):
+        """Разница в кол-ве подписчиков"""
+        return int(self.subscriber_count) - int(other.subscriber_count)
+
+    def __lt__(self, other):
+        """Сравнивает по количеству подписчиков"""
+        return int(self.subscriber_count) < int(other.subscriber_count)
+
+    def __ge__(self, other):
+        return int(self.subscriber_count) >= int(other.subscriber_count)
+
+    def __le__(self, other):
+        return int(self.subscriber_count) <= int(other.subscriber_count)
+
+    def __eq__(self, other):
+        return int(self.subscriber_count) == int(other.subscriber_count)
+
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         # создать специальный объект для работы с API
