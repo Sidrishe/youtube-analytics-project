@@ -14,7 +14,7 @@ class Video:
         self.video_id = video_id
         self.video_info = self.youtube.videos().list(id=self.video_id, part='snippet,statistics').execute()
         self.title = self.video_info["items"][0]["snippet"]["title"]
-        self.url = f"https://www.youtube.com/{self.video_id}"
+        self.url = f"https://youtu.be/{self.video_id}"
         self.view_count = self.video_info["items"][0]["statistics"]["viewCount"]
         self.like_count = self.video_info["items"][0]["statistics"]["likeCount"]
 
